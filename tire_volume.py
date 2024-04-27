@@ -24,5 +24,3 @@ with open("volumes.txt", "a") as file:
         data_to_write += f", {phone_number}"
     data_to_write += "\n"
     file.write(data_to_write)
-
-print("Data has been recorded to volumes.txt")
