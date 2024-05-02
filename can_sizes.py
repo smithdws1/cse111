@@ -1,6 +1,6 @@
 import math
 
-# Define the can sizes data
+# List with can data
 can_sizes = [
     ("#1 Picnic", 6.83, 10.16, 0.28),
     ("#1 Tall", 7.78, 11.91, 0.43),
@@ -16,47 +16,43 @@ can_sizes = [
     ("#303", 8.10, 11.11, 0.42)
 ]
 
-def compute_volume(radius, height):
-    """ Compute the volume of a cylinder. """
-    return math.pi * radius ** 2 * height
+# Functions
+def calculate_volume(radius, height):
+    return math.pi * (radius ** 2) * height
 
-def compute_surface_area(radius, height):
-    """ Compute the surface area of a cylinder. """
+def calculate_surface_area(radius, height):
     return 2 * math.pi * radius * (radius + height)
 
-def compute_storage_efficiency(volume, surface_area):
-    """ Compute storage efficiency of a cylinder. """
+def calculate_storage_efficiency(volume, surface_area):
     return volume / surface_area
 
-def compute_cost_efficiency(volume, cost):
-    """ Compute cost efficiency of a can. """
+def calculate_cost_efficiency(volume, cost):
     return volume / cost
 
+# Main
 def main():
     max_storage_efficiency = 0
     max_cost_efficiency = 0
     best_storage_can = ""
     best_cost_can = ""
-    
+
     for name, radius, height, cost in can_sizes:
-        volume = compute_volume(radius, height)
-        surface_area = compute_surface_area(radius, height)
-        storage_efficiency = compute_storage_efficiency(volume, surface_area)
-        cost_efficiency = compute_cost_efficiency(volume, cost)
+        volume = calculate_volume(radius, height)
+        surface_area = calculate_surface_area(radius, height)
+        storage_efficiency = calculate_storage_efficiency(volume, surface_area)
+        cost_efficiency = calculate_cost_efficiency(volume, cost)
 
-        # Output the results
-        print(f"{name}: Volume = {volume:.2f} cm^3, Surface Area = {surface_area:.2f} cm^2, Storage Efficiency = {storage_efficiency:.4f}, Cost Efficiency = {cost_efficiency:.4f}")
+        print(f"{name}: Volume = {volume} cubic cm's, Surface Area = {surface_area} square cm's, "
+              f"Storage Efficiency = {storage_efficiency:.2f}, Cost Efficiency = {cost_efficiency:.0f}")
 
-        # Find the can with the highest storage and cost efficiencies
         if storage_efficiency > max_storage_efficiency:
             max_storage_efficiency = storage_efficiency
             best_storage_can = name
-        
+
         if cost_efficiency > max_cost_efficiency:
             max_cost_efficiency = cost_efficiency
             best_cost_can = name
 
-    # Print the results for the best efficiencies
     print(f"\nThe can with the highest storage efficiency is {best_storage_can}.")
     print(f"The can with the highest cost efficiency is {best_cost_can}.")
 
