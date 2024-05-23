@@ -1,14 +1,14 @@
 import random
 
 def append_random_numbers(numbers_list, quantity=1):
-    for _ in range(quantity):
+    for i in range(quantity):
         random_number = round(random.uniform(0, 100), 1)
         numbers_list.append(random_number)
 
 def append_random_words(words_list, quantity=1):
-    word_bank = ["dog", "cat", "apple", "keyboard", "phone", "baby", "laptop", "crazy", "torch", "sideways", "maybe"]
-    for _ in range(quantity):
-        random_word = random.choice(word_bank)
+    word_list = ["dog", "cat", "apple", "keyboard", "phone", "baby", "laptop", "crazy", "torch", "sideways", "maybe"]
+    for i in range(quantity):
+        random_word = random.choice(word_list)
         words_list.append(random_word)
 
 def main():
